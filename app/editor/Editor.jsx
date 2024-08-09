@@ -106,6 +106,7 @@ function CanvaClone({
   }, [templateId]);
 
   useEffect(() => {
+    if (!cesdkContainer.current || !initialImageURL) return;
     let cesdk;
     console.log('canva clone');
     const externalAssetSources = {
@@ -190,8 +191,10 @@ function CanvaClone({
           cesdk.engine.block.setSize(graphicBlockId, { width: 0.3, height: 0.3 });
         }
 
-        // Attach engine canvas to DOM
+      // Attach engine canvas to DOM
+      if (document.getElementById('cesdk_container')) {
         document.getElementById('cesdk_container').append(cesdk.element);
+      }
       }).catch(error => {
         console.error('Error initializing CE.SDK:', error);
       });
@@ -209,8 +212,9 @@ function CanvaClone({
     if (cesdkContainer.current) {
       setLoading(true);
       try {
-        // Get the current page from the scene
-        const engine = cesdkInstance.current.engine; // Access the engine
+        const engine = cesdkInstance.current?.engine;
+        if (!engine) throw new Error('CE.SDK engine not available');
+
         const page = engine.scene.getCurrentPage();
 
         // Export the page as a PNG blob

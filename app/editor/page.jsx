@@ -1,21 +1,15 @@
 "use client"
 
 import { useSearchParams } from 'next/navigation';
-import Editor from './Editor';
+import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
+
+// Dynamically import the Editor component with SSR disabled
+const Editor = dynamic(() => import('./Editor'), { ssr: false });
 
 export default function EditorPage() {
   const searchParams = useSearchParams();
   const templateId = searchParams.get('templateId');
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true); // Set to true after component mounts
-  }, []);
-
-  if (!isClient) {
-    return null; // Prevent rendering on the server
-  }
 
   if (!templateId) {
     return <div>No template ID provided</div>;

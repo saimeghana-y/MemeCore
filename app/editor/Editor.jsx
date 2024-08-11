@@ -192,7 +192,7 @@ function CanvaClone({
         }
 
       // Attach engine canvas to DOM
-      if (typeof window !== 'undefined') {
+      if (typeof document !== 'undefined') {
         document.getElementById('cesdk_container').append(cesdk.element);
       }
       }).catch(error => {

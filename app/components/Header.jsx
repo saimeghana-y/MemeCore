@@ -95,12 +95,6 @@ function Header() {
       <HiBell className='text-[20px] md:text-[60px] text-gray-500 cursor-pointer' />
       <HiChat className='text-[20px] md:text-[60px] text-gray-500 cursor-pointer' />
       
-      <button
-            className='font-semibold p-2 px-4 rounded-full mr-3'
-            onClick={() => signIn()}
-          >
-            
-          </button>
           {!walletAddress && (
             <button
               className='font-semibold p-2 px-4 rounded-full'

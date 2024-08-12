@@ -169,6 +169,25 @@ function CanvaClone({
           }
         }
       },
+      ui: {
+        elements: {
+          panels: {
+            settings: true
+          },
+          navigation: {
+            action: {
+              export: {
+                show: true,
+                format: ['image/png']
+              }
+            }
+          }
+        }
+      },
+      callbacks: {
+        onExport: 'download',
+        onUpload: 'local'
+      }
       // ... other config options
     };
 
@@ -187,7 +206,6 @@ function CanvaClone({
 
           // Modify the image block's properties
           cesdk.engine.block.setOpacity(graphicBlockId, 1);
-          cesdk.engine.block.setPosition(graphicBlockId, { x: 0.5, y: 0.5 });
           cesdk.engine.block.setSize(graphicBlockId, { width: 0.3, height: 0.3 });
         }
 

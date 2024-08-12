@@ -29,9 +29,7 @@ function Header() {
   }
 
   const onCreateClick = () => {
-    if (session) {
       router.push('/pin-builder');
-    } 
   }
 
   const onConnectWalletClick = async () => {

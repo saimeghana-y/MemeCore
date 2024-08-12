@@ -135,6 +135,8 @@ function CanvaClone({
     };
 
     let config = {
+      role: 'Adopter',
+      theme: 'light',
       license: `arSuFjRta2YcEbT078z-P3KuGWfCsT2GV_PqAIhh-O4HqWq5ZpPOichl3xMhAGED`,
       assetSources: {
         ...externalAssetSources,
@@ -179,7 +181,7 @@ function CanvaClone({
               export: {
                 show: true,
                 format: ['image/png']
-              }
+              },
             }
           }
         }
@@ -196,6 +198,9 @@ function CanvaClone({
         cesdk = instance;
         cesdkInstance.current = cesdk; // Store the cesdk instance in the ref
 
+        // Add default asset sources for stickers and shapes
+        cesdk.addDefaultAssetSources(); // Add this line
+        cesdk.addDemoAssetSources({ sceneMode: 'Design' });
         // Create the scene from the initial image URL
         await cesdk.engine.scene.createFromImage(initialImageURL);
 
@@ -207,6 +212,7 @@ function CanvaClone({
           // Modify the image block's properties
           cesdk.engine.block.setOpacity(graphicBlockId, 1);
           cesdk.engine.block.setSize(graphicBlockId, { width: 0.3, height: 0.3 });
+          
         }
 
       // Attach engine canvas to DOM

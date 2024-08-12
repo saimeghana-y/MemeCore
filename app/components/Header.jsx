@@ -83,15 +83,15 @@ function Header() {
       >
         Create Meme
       </button>
-      <div className='bg-[#e9e9e9] p-2 px-6 gap-3 items-center rounded-full w-full hidden md:flex'>
-        <HiSearch className='text-[34px] text-gray-500' />
+      <div className=' p-2 px-6 gap-3 items-center rounded-full w-full hidden md:flex'>
+        {/* <HiSearch className='text-[34px] text-gray-500' />
         <input
           type="text"
           placeholder='Search'
           className='bg-transparent outline-none w-full text-[20px]'
-        />
+        /> */}
       </div>
-      <HiSearch className='text-[20px] text-gray-500 md:hidden' />
+      {/* <HiSearch className='text-[20px] text-gray-500 md:hidden' /> */}
       <HiBell className='text-[20px] md:text-[60px] text-gray-500 cursor-pointer' />
       <HiChat className='text-[20px] md:text-[60px] text-gray-500 cursor-pointer' />
       

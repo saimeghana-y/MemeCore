@@ -94,7 +94,9 @@ function CanvaClone({
 
   useEffect(() => {
     const fetchTemplateImage = () => {
-      if (templateId) {
+      console.log('template id:', templateId);
+      if (templateId && templateId !== 'null') {
+        console.log('template id not null');
         const template = templates.find(t => t.id === templateId);
         if (template) {
           setInitialImageURL(template.thumbnailURL);
@@ -103,6 +105,7 @@ function CanvaClone({
         // Set to the first template by default if no templateId
         setInitialImageURL('');
       }
+      console.log('initial image url:', initialImageURL);
     };
 
     fetchTemplateImage();
@@ -196,7 +199,7 @@ function CanvaClone({
       // ... other config options
     };
 
-    if (cesdkContainer.current) {
+    if ((cesdkContainer.current && !templateId) || (cesdkContainer.current && templateId && initialImageURL)) {
       CreativeEditorSDK.init(cesdkContainer.current, config).then(async (instance) => {
         cesdk = instance;
         cesdkInstance.current = cesdk; // Store the cesdk instance in the ref

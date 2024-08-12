@@ -101,7 +101,7 @@ function CanvaClone({
         }
       } else {
         // Set to the first template by default if no templateId
-        setInitialImageURL(templates[0].thumbnailURL);
+        setInitialImageURL('');
       }
     };
 
@@ -109,7 +109,7 @@ function CanvaClone({
   }, [templateId]);
 
   useEffect(() => {
-    if (!cesdkContainer.current || !initialImageURL) return;
+    if (!cesdkContainer.current) return;
     let cesdk;
     console.log('canva clone');
     const externalAssetSources = {
@@ -196,7 +196,7 @@ function CanvaClone({
       // ... other config options
     };
 
-    if (cesdkContainer.current && initialImageURL) {
+    if (cesdkContainer.current) {
       CreativeEditorSDK.init(cesdkContainer.current, config).then(async (instance) => {
         cesdk = instance;
         cesdkInstance.current = cesdk; // Store the cesdk instance in the ref
@@ -204,9 +204,11 @@ function CanvaClone({
         // Add default asset sources for stickers and shapes
         cesdk.addDefaultAssetSources(); // Add this line
         cesdk.addDemoAssetSources({ sceneMode: 'Design' });
-        // Create the scene from the initial image URL
-        await cesdk.engine.scene.createFromImage(initialImageURL);
-
+          
+    if (initialImageURL) {
+      // Only create the scene if initialImageURL is not empty
+      await cesdk.engine.scene.createFromImage(initialImageURL);
+    }
         // Find the automatically added graphic block in the scene
         const graphicBlocks = cesdk.engine.block.findByType('graphic');
         if (graphicBlocks.length > 0) {

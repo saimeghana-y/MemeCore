@@ -77,6 +77,12 @@ function Header() {
       >
         Upload
       </button>
+      <button
+        className='font-semibold p-3 px-6 rounded-full text-[20px]'
+        onClick={() => router.push('/createMeme')}
+      >
+        Create Meme
+      </button>
       <div className='bg-[#e9e9e9] p-2 px-6 gap-3 items-center rounded-full w-full hidden md:flex'>
         <HiSearch className='text-[34px] text-gray-500' />
         <input

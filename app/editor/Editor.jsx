@@ -99,6 +99,9 @@ function CanvaClone({
         if (template) {
           setInitialImageURL(template.thumbnailURL);
         }
+      } else {
+        // Set to the first template by default if no templateId
+        setInitialImageURL(templates[0].thumbnailURL);
       }
     };
 
@@ -294,8 +297,10 @@ function CanvaClone({
   const handleGenerateSuggestions = async () => {
     setLoading(true);
     try {
+      console.log('generating suggestions');
       const response = await axios.post('/api/generateSuggestions', { prompt });
-      setSuggestions(response.data.text);
+      setSuggestions(response.data.text.split('\n')); // Assuming the response is a newline-separated string
+      console.log('suggestions:', response.data.text.split('\n'));
     } catch (error) {
       console.error('Error generating suggestions:', error);
     } finally {
@@ -330,13 +335,7 @@ function CanvaClone({
               boxSizing: 'border-box'
             }}
           />
-          <button onClick={() => {
-            setSuggestions([
-              "Top Panel : TradFi",
-              "Bottom Panel : DeFi",
-              "This captures the essence of preferring decentralized solutions over centralized ones."
-            ]);
-          }} className="ai-generate-button" style={{
+          <button  onClick={handleGenerateSuggestions} className="ai-generate-button" style={{
             width: '100%',
             padding: '12px',
             borderRadius: '8px',

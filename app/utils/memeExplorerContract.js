@@ -443,7 +443,7 @@ const contractABI = [
 		"type": "function"
 	}
 ]; // Add the ABI of your deployed contract here
-const contractAddress = '0xbbbb6352636c1096d6f42cb473bed14345ac6041'; // Add the address of your deployed contract here
+const contractAddress = '0xcb070a0d2e42caca949972ba1f0c95241bbffc04'; // Add the address of your deployed contract here
 
 export const getMemeExplorerContract = async (signer) => {
   const contract = new ethers.Contract(contractAddress, contractABI, signer);

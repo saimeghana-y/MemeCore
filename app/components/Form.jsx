@@ -67,8 +67,8 @@ function Form() {
                   const txReceipt = await provider.waitForTransaction(txHash);
                   if (txReceipt.status === 1) {
                       console.log("Meme successfully uploaded to blockchain");
-                      // Redirect after successful upload
-                      // router.push("/" + session.user.email);
+                      // Redirect after successful upload to home
+                      router.push("/");
                   } else {
                       console.error("Transaction failed");
                   }

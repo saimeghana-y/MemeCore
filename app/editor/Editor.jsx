@@ -286,6 +286,7 @@ function CanvaClone({
           const txReceipt = await provider.waitForTransaction(txHash);
           if (txReceipt.status === 1) {
             console.log("Meme successfully uploaded to blockchain");
+            router.push("/");
           } else {
             console.error("Transaction failed");
           }

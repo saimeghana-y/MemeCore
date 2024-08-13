@@ -4,7 +4,20 @@ import { ethers } from 'ethers'
 import MemeDetail from './../../components/PinDetail/MemeDetail'
 import { FaTwitter, FaFarcaster } from 'react-icons/fa' // Import social media icons
 import { getMemeComments } from './../../utils/memeExplorerContract' // Update the path as needed
+import { TwitterApi } from 'twitter-api-v2';
 
+const client = new TwitterApi('AAAAAAAAAAAAAAAAAAAAAL9tGwEAAAAAXTU4McrUvjdGO3q3XnWDWAU8HHk%3D3XW6sUHKfWSGIJLImK1ChclxMFJmOy9Pxk5nRkcoYVTNbKjwls');
+
+const shareOnTwitter = async () => {
+  try {
+    const tweetContent = `Check out this meme! ${pinDetail.image}`;
+    await client.v1.tweet(tweetContent);
+    alert('Meme shared on Twitter!');
+  } catch (error) {
+    console.error('Error sharing on Twitter:', error);
+    alert('Failed to share on Twitter.');
+  }
+};
 function PinInfo({ pinDetail }) {
   const [comments, setComments] = useState([]);
 
@@ -40,7 +53,7 @@ function PinInfo({ pinDetail }) {
       </div>
       <MemeDetail memeId={pinDetail.id} comments={comments} />
       <div className="flex space-x-4 mt-4" style={{ marginLeft: '45px' }}>
-        <button onClick={() => window.open(pinDetail.link)} className="flex items-center bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+        <button onClick={shareOnTwitter} className="flex items-center bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
           <FaTwitter className="mr-2" /> Share on Twitter
         </button>
       </div>

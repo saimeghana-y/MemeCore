@@ -112,6 +112,8 @@ function CanvaClone({
   }, [templateId]);
 
   useEffect(() => {
+    console.log('CanvaClone mounted or updated', { templateId, initialImageURL });
+
     if (!cesdkContainer.current) return;
     let cesdk;
     console.log('canva clone');
@@ -352,14 +354,16 @@ function CanvaClone({
             cursor: 'pointer',
             marginBottom: '20px'
           }}>
-            Generate Suggestions
+             {loading ? <span>Loading...</span> : <span>Generate Suggestions</span>}
           </button>
           {suggestions.length > 0 && (
             <div className="suggestions-card" style={{
               padding: '20px',
               backgroundColor: '#ffffff',
               borderRadius: '12px',
-              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+              maxHeight: '300px', // Set a maximum height
+              overflowY: 'auto'
             }}>
               <h3 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '10px', color: '#111827' }}>AI Suggestions:</h3>
               <ul style={{ listStyleType: 'none', paddingLeft: '0' }}>

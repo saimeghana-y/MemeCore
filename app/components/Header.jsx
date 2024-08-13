@@ -60,25 +60,25 @@ function Header() {
         className='hover:bg-gray-300 p-2 rounded-full cursor-pointer'
       />
       <button
-        className='bg-black text-[#bebeae] p-3 px-6 rounded-full text-[20px] hidden md:block'
+        className='bg-black text-[#bebeae] p-3 px-6 rounded-full text-[18px] hidden md:block'
         onClick={() => router.push('/')}
       >
         Home
       </button>
       <button
-        className='font-semibold p-3 px-6 rounded-full text-[20px] text-[#bebeae]'
+        className='font-semibold p-3 px-6 rounded-full text-[18px] text-[#bebeae]'
         onClick={() => router.push('/templates')}
       >
         Templates
       </button>
       <button
-        className='font-semibold p-3 px-6 rounded-full text-[20px] text-[#bebeae]'
+        className='font-semibold p-3 px-6 rounded-full text-[18px] text-[#bebeae]'
         onClick={onCreateClick}
       >
         Upload
       </button>
       <button
-        className='font-semibold p-3 px-6 rounded-full text-[20px] text-[#bebeae]'
+        className='font-semibold p-3 px-6 rounded-full text-[18px] text-[#bebeae]'
         onClick={() => router.push('/createMeme')}
       >
         Create Meme
@@ -88,12 +88,12 @@ function Header() {
         <input
           type="text"
           placeholder='Search'
-          className='bg-transparent outline-none w-full text-[20px]'
+          className='bg-transparent outline-none w-full text-[18px]'
         /> */}
       </div>
-      {/* <HiSearch className='text-[20px] text-gray-500 md:hidden' /> */}
-      <HiBell className='text-[20px] md:text-[60px] text-gray-500 cursor-pointer' />
-      <HiChat className='text-[20px] md:text-[60px] text-gray-500 cursor-pointer' />
+      {/* <HiSearch className='text-[18px] text-gray-500 md:hidden' /> */}
+      <HiBell className='text-[18px] md:text-[60px] text-gray-500 cursor-pointer' />
+      <HiChat className='text-[18px] md:text-[60px] text-gray-500 cursor-pointer' />
       
           {!walletAddress && (
             <button
@@ -105,7 +105,7 @@ function Header() {
           )}
         
       {walletAddress && (
-        <div className='text-gray-500 text-[20px] ml-3'>
+        <div className='text-gray-500 text-[18px] ml-3'>
           {`Connected: ${walletAddress.substring(0, 6)}...${walletAddress.substring(walletAddress.length - 4)}`}
         </div>
       )}

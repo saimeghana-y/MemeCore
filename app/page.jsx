@@ -42,7 +42,7 @@ export default function Home() {
 
   return (
     <div>
-      <div style={{ backgroundImage: "url('/background.png')", backgroundSize: 'cover',  height: '100vh', backgroundPosition: 'center', width: '100%' }}>
+      <div style={{ backgroundImage: "url('/background.png')", backgroundSize: 'cover',  height: '100vh', backgroundPosition: 'center', width: '100%', marginTop: '-90px' }}>
       </div>
       <div  className='p-3' >
       <PinList listOfPins={listOfPins} />

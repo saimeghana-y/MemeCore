@@ -40,7 +40,10 @@ function PinInfo({ pinDetail }) {
       </div>
       <MemeDetail memeId={pinDetail.id} comments={comments} />
       <div className="flex space-x-4 mt-4" style={{ marginLeft: '45px' }}>
-        <button onClick={() => window.open(pinDetail.link)} className="flex items-center bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+        <button onClick={() => {
+          const tweetUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(pinDetail.image)}&text=Check out this meme!`;
+          window.open(tweetUrl, '_blank');
+        }} className="flex items-center bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
           <FaTwitter className="mr-2" /> Share on Twitter
         </button>
       </div>

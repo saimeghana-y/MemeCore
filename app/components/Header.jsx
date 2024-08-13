@@ -36,6 +36,14 @@ function Header() {
     if (typeof window.ethereum !== 'undefined') {
       try {
         const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const network = await provider.getNetwork();
+  
+        // Check if the network is the Core testnet (replace with the actual network ID)
+        if (network.chainId !== 1115) {
+          alert('Please switch to the Core testnet in MetaMask.');
+          return;
+        }
+  
         await provider.send("eth_requestAccounts", []);
         const signer = provider.getSigner();
         const address = await signer.getAddress();

@@ -2,6 +2,9 @@
 
 Developed a meme maker web platform designed to empower users to upload images and enhance them with Core-branded elements. This platform includes tools that boost creativity and engagement, such as meme templates, AI-driven suggestions, and seamless social media integration. The aim is to create a dynamic environment where users can craft unique memes with a distinctive Core identity, all while enjoying a fun and interactive experience.
 
+![background](https://github.com/user-attachments/assets/d5de3e2f-b23c-472b-a8e9-6c5272a3be81)
+
+
 ## Key Features:
 
 - **Tipping System** : A built-in tipping functionality that allows users to support and reward creators of their favorite memes directly on the platform.

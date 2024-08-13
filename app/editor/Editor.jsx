@@ -303,11 +303,11 @@ function CanvaClone({
     setLoading(true);
     try {
       console.log('generating suggestions');
-      const response = await axios.post('/api/generateSuggestions', { prompt });
+      const response = await axios.post('/api/gemini', { prompt });
       setSuggestions(response.data.text.split('\n')); // Assuming the response is a newline-separated string
       console.log('suggestions:', response.data.text.split('\n'));
     } catch (error) {
-      console.error('Error generating suggestions:', error);
+      console.error('Error generating suggestions editor.jsx:', error);
     } finally {
       setLoading(false);
     }

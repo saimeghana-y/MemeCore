@@ -2,20 +2,14 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
-export default async function handler(req, res) {
-  if (req.method === 'POST') {
+export default async function convertToTweet(prompt) {
     try {
-      const { prompt } = req.body;
       const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
       const result = await model.generateContent(prompt);
       const response = await result.response;
       const text = await response.text();
-      res.status(200).json({ text });
+      return text; // Return the generated text
     } catch (error) {
-      res.status(500).json({ error: 'Error generating suggestions' });
+      throw new Error('Error generating suggestions index.js');
     }
-  } else {
-    res.setHeader('Allow', ['POST']);
-    res.status(405).end(`Method ${req.method} Not Allowed`);
-  }
 }

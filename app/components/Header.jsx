@@ -60,25 +60,25 @@ function Header() {
         className='hover:bg-gray-300 p-2 rounded-full cursor-pointer'
       />
       <button
-        className='bg-black text-white p-3 px-6 rounded-full text-[20px] hidden md:block'
+        className='bg-black text-[#bebeae] p-3 px-6 rounded-full text-[20px] hidden md:block'
         onClick={() => router.push('/')}
       >
         Home
       </button>
       <button
-        className='font-semibold p-3 px-6 rounded-full text-[20px]'
+        className='font-semibold p-3 px-6 rounded-full text-[20px] text-[#bebeae]'
         onClick={() => router.push('/templates')}
       >
         Templates
       </button>
       <button
-        className='font-semibold p-3 px-6 rounded-full text-[20px]'
+        className='font-semibold p-3 px-6 rounded-full text-[20px] text-[#bebeae]'
         onClick={onCreateClick}
       >
         Upload
       </button>
       <button
-        className='font-semibold p-3 px-6 rounded-full text-[20px]'
+        className='font-semibold p-3 px-6 rounded-full text-[20px] text-[#bebeae]'
         onClick={() => router.push('/createMeme')}
       >
         Create Meme
@@ -97,7 +97,7 @@ function Header() {
       
           {!walletAddress && (
             <button
-              className='font-semibold p-2 px-4 rounded-full'
+              className='font-semibold p-2 px-4 rounded-full text-[#bebeae]'
               onClick={onConnectWalletClick}
             >
               Connect Wallet

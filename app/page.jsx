@@ -41,8 +41,12 @@ export default function Home() {
   };
 
   return (
-    <div className='p-3'>
+    <div>
+      <div style={{ backgroundImage: "url('/background.png')", backgroundSize: 'cover',  height: '100vh', backgroundPosition: 'center', width: '100%' }}>
+      </div>
+      <div  className='p-3' >
       <PinList listOfPins={listOfPins} />
+      </div>
     </div>
   );
 }
